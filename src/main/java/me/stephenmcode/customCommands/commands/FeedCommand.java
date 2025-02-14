@@ -22,6 +22,8 @@ public class FeedCommand implements CommandExecutor {
                     .color(TextColor.color(191, 133, 24));
 
             player.sendMessage(message);
+
+            return true;
         }
 
         return false;
