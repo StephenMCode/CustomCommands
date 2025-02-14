@@ -17,6 +17,7 @@ public final class CustomCommands extends JavaPlugin {
 
         System.out.println("Custom Commands plugin by StephenMCode has started!");
 
+        // Overrides default time command in the commandMap
         try {
             Field commandMapField = getServer().getClass().getDeclaredField("commandMap");
             commandMapField.setAccessible(true);

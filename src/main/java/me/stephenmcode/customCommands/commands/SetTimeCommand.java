@@ -22,6 +22,7 @@ public class SetTimeCommand implements CommandExecutor {
         this.plugin = plugin;
     }
 
+    // Incrementally update time
     public void setTime(World world, long targetTick) {
         new BukkitRunnable() {
             long currentTick = world.getTime();
