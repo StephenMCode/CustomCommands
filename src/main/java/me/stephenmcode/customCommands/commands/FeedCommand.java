@@ -17,6 +17,7 @@ public class FeedCommand implements CommandExecutor {
         if (commandSender instanceof Player player) {
 
             player.setFoodLevel(20);
+            player.setSaturation(20);
 
             TextComponent message = Component.text("You have been fed.")
                     .color(TextColor.color(191, 133, 24));
