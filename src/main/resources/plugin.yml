@@ -11,6 +11,9 @@ commands:
   feed:
     description: Fill hunger bar to full
     usage: /<command>
+  time:
+    description: Sets the time of day
+    usage: /<command> <day|night|noon|midnight|freeze|unfreeze>
 permissions:
   customcommands.operator:
     description: Allows a player to run all commands from this plugin
