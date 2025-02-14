@@ -27,7 +27,7 @@ public class SetTimeCommand implements CommandExecutor {
         new BukkitRunnable() {
             long currentTick = world.getTime();
             final boolean forward = currentTick < targetTick;
-            final long step = 20;
+            final long step = 50;
 
             @Override
             public void run() {
@@ -69,30 +69,32 @@ public class SetTimeCommand implements CommandExecutor {
         World world = player.getWorld();
         String time = strings[0].toLowerCase();
 
-        switch (time) {
-            case "day":
+        return switch (time) {
+            case "day" -> {
                 setTime(world, 1000);
-                break;
-            case "night":
+                yield true;
+            }
+            case "night" -> {
                 setTime(world, 13000);
-                break;
-            case "noon":
+                yield true;
+            }
+            case "noon" -> {
                 setTime(world, 6000);
-                break;
-            case "midnight":
+                yield true;
+            }
+            case "midnight" -> {
                 setTime(world, 18000);
-                break;
-            case "freeze":
+                yield true;
+            }
+            case "freeze" -> {
                 world.setGameRule(DO_DAYLIGHT_CYCLE, false);
-                return true;
-            case "unfreeze":
+                yield true;
+            }
+            case "unfreeze" -> {
                 world.setGameRule(DO_DAYLIGHT_CYCLE, true);
-                return true;
-            default:
-                return false;
-        }
-
-
-        return false;
+                yield true;
+            }
+            default -> false;
+        };
     }
 }
