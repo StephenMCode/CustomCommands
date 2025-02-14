@@ -16,6 +16,15 @@ public class FeedCommand implements CommandExecutor {
 
         if (commandSender instanceof Player player) {
 
+            if (!player.hasPermission("customcommands.operator")) {
+                TextComponent message = Component.text("You do not have permission to run this command.")
+                        .color(TextColor.color(162, 42, 42));
+
+                player.sendMessage(message);
+
+                return true;
+            }
+
             player.setFoodLevel(20);
             player.setSaturation(20);
 

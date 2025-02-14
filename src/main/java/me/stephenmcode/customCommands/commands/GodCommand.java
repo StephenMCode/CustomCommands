@@ -15,6 +15,14 @@ public class GodCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String @NotNull [] strings) {
 
         if (commandSender instanceof Player player) {
+            if (!player.hasPermission("customcommands.operator")) {
+                TextComponent message = Component.text("You do not have permission to run this command.")
+                        .color(TextColor.color(162, 42, 42));
+
+                player.sendMessage(message);
+
+                return true;
+            }
 
             if (player.isInvulnerable()) {
                 player.setInvulnerable(false);

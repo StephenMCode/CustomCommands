@@ -8,11 +8,9 @@ commands:
   god:
     description: Become invincible
     usage: /<command>
-    permission: customcommands.operator
   feed:
     description: Fill hunger bar to full
     usage: /<command>
-    permission: customcommands.operator
 permissions:
   customcommands.operator:
     description: Allows a player to run all commands from this plugin
