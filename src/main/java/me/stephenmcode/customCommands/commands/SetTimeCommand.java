@@ -26,16 +26,17 @@ public class SetTimeCommand implements CommandExecutor {
     public void setTime(World world, long targetTick) {
         new BukkitRunnable() {
             long currentTick = world.getTime();
-            final boolean forward = currentTick < targetTick;
             final long step = 50;
 
             @Override
             public void run() {
-                if ((forward && currentTick >= targetTick) || (!forward && currentTick <= targetTick)) {
+                if (currentTick >= targetTick) {
                     this.cancel();
                 }
 
-                currentTick += (forward ? step : -step);
+                currentTick += step;
+                currentTick %= 24000;
+
                 world.setTime(currentTick);
             }
         }.runTaskTimer(plugin, 0L, 1L);
