@@ -8,3 +8,6 @@ commands:
   god:
     description: Become invincible
     usage: /<command>
+  feed:
+    description: Fill hunger bar to full
+    usage: /<command>
